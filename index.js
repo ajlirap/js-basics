@@ -74,3 +74,12 @@ function square(number)
 
 let number= square(2);
 console.log(square(2));
+
+/**OPERATOR **/
+/**
+ * Arithmetic
+ * Assignment
+ * Comparison
+ * Logical
+ * Bitwise
+ */
