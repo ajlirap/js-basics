@@ -83,3 +83,56 @@ console.log(square(2));
  * Logical
  * Bitwise
  */
+
+/**Exercises  */
+
+
+/**FizzBuzz*/
+
+//Divisible by 3 ==> Fizz
+//Divisible by 5 ==> Buzz
+//Divisible by both 3 and 5 ==>FizzBuzz
+//Not divisible by 3 or 5 ==> input
+//Not a number ==> 'Not a number'
+
+const output = fizzBuzz('valuea');
+console.log(output);
+
+function fizzBuzz(input) {
+    if (typeof input !== 'number')
+        return NaN;
+
+    if (input % 3 === 0 && input % 5 === 0) {
+        return 'FizzBuzz';
+    }
+    else if (input % 3 === 0) {
+        return 'Fizz';
+    }
+    else if (input % 5 === 0) {
+        return 'Buzz';
+    }
+    else
+        return input;
+}
+
+/***CHECKSPEED */
+
+//Speed Limit = 70
+
+checkSpeed(135);
+
+function checkSpeed(speed) {
+    const SpeedLimit = 70;
+    const kmPerPoint = 5;
+    if (speed < SpeedLimit + kmPerPoint)
+        console.log('Ok');
+    else {
+        const Points = Math.floor((speed - SpeedLimit) / kmPerPoint);
+
+        if (Points > 12)
+            console.log('LICENSE SUSPENDED');
+        else
+            console.log('Points', Points);
+    }
+
+}
