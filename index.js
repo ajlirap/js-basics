@@ -83,3 +83,26 @@ console.log(square(2));
  * Logical
  * Bitwise
  */
+
+
+/**Arithmetic */
+
+let x=10;
+let y=3;
+
+// console.log(x + y);  /**addition */
+// console.log(x - y); /**Subtraction */
+// console.log(x * y); /**Multiplication */
+// console.log(x / y); /**Division */
+// console.log(x % y); /**Remainder of Division */
+// console.log(x ** y); /**Exponentiation */
+
+//Increment (++)
+console.log(++x);
+console.log(x++);
+
+//Decrement (--);
+console.log(--x);
+console.log(x--);
+
+/**Assignment operator */ 
