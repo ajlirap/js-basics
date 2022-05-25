@@ -156,3 +156,12 @@ console.log(nombre);
 let txt = "I can eat bananas all day";
 let result = txt.slice(10, 17);
 console.log(result);
+
+const fruits = ["Banana", "Orange", "Apple"];
+fruits.pop();
+fruits.push("Kiwi");
+
+const d = new Date();
+d.setFullYear(2001);
+
+console.log(d);
