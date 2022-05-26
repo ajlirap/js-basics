@@ -114,7 +114,7 @@ console.log(x--);*/
 //Not divisible by 3 or 5 ==> input
 //Not a number ==> 'Not a number'
 
-const output = fizzBuzz("valuea");
+const output = fizzBuzz("value");
 console.log(output);
 
 function fizzBuzz(input) {
@@ -129,7 +129,7 @@ function fizzBuzz(input) {
   } else return input;
 }
 
-/***CHECKSPEED */
+// /***CHECK SPEED */
 
 //Speed Limit = 70
 
@@ -149,9 +149,9 @@ function checkSpeed(speed) {
 
 // document.getElementById("a").innerHTML();
 
-let nombre = "Arturo".toUpperCase();
+let NameOne = "Arturo".toUpperCase();
 
-console.log(nombre);
+console.log(NameOne);
 
 let txt = "I can eat bananas all day";
 let result = txt.slice(10, 17);
@@ -170,14 +170,20 @@ let max = Math.max(10, 20);
 
 let round = Math.round(5.3);
 
-document.getElementById("image").src = "pic_mountain.jpg";
+// document.getElementById("image").src = "pic_mountain.jpg";
 
-document.getElementsByTagName("p")[0].innerHTML = "Hello from JS";
+// document.getElementsByTagName("p")[0].innerHTML = "Hello from JS";
 
-document.getElementById("myText").value = "Have a nice day!";
+// document.getElementById("myText").value = "Have a nice day!";
 
-document.getElementById("demo").style.color = "red";
+// document.getElementById("demo").style.color = "red";
 
-document.getElementById("demo1").style.fontSize = "70px";
+// document.getElementById("demo1").style.fontSize = "70px";
 
-document.getElementById("demo1").style.display = "none";
+// document.getElementById("demo1").style.display = "none";
+
+function normalize(param) {
+  param.replace();
+  return console.log(param.replace("/-/", "/"));
+}
+normalize("20-05-2017");
