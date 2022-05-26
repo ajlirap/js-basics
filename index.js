@@ -187,3 +187,5 @@ function normalize(param) {
   return console.log(param.replace("/-/", "/"));
 }
 normalize("20-05-2017");
+
+console.log(Math.ceil(856.12));
