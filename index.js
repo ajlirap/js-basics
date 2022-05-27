@@ -189,3 +189,38 @@ function normalize(param) {
 normalize("20-05-2017");
 
 console.log(Math.ceil(856.12));
+
+function dice() {
+  return Math.ceil(Math.random() * 6);
+}
+console.log(dice());
+
+function add(str) {
+  str.substr;
+  return parseInt(str, 10) + parseInt(str.substr(str.indexOf("+")), 10);
+}
+console.log(add("102+17"));
+
+function getLastElement(vArray) {
+  let len = vArray.length;
+  return vArray[len];
+}
+console.log(getLastElement([1, 2]));
+
+let abcd = ["a", "b", "c", "d"];
+let ab = abcd.slice(0, 2);
+let bc = abcd.slice(1, 3);
+let bcd = abcd.slice(1, 4);
+console.log(ab);
+console.log(bc);
+console.log(bcd);
+
+function cutComment(value) {
+  if (value.indexOf("//") != -1) {
+    let comm = value.indexOf("//") + 2;
+    return value.slice(comm, value.length);
+  }
+  return null;
+}
+
+console.log(cutComment("let foo; // bar"));
