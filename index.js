@@ -408,3 +408,39 @@ a = b;
 b = c;
 console.log(a);
 console.log(b);
+
+//If Statement Conditions
+/**** 
+ * Hour
+ * If hour is between 6 AM and 12 PM: Good morning!
+ * If It is between 12PM and 6PM : Good afternoon!
+ * Otherwise: Good evening!
+
+*/
+
+let hour = 19;
+
+if (hour >= 6 && hour <= 12) console.log("Good morning");
+else if (hour >= 12 && hour <= 18) console.log("Good afternoon");
+else console.log("Good evening");
+
+//Switch Statement
+
+let role;
+
+switch (role) {
+  case "guest":
+    console.log("Guest User");
+    break;
+
+  case "moderator":
+    console.log("Moderator User");
+    break;
+  default:
+    console.log("Unknown User");
+}
+
+//If Statement
+if (role === "guest") console.log("Guest");
+else if (role === "moderator") console.log("moderator");
+else console.log("Unknown");
