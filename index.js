@@ -384,12 +384,15 @@ function sumMultiples(value) {
 }
 sumMultiples(3);
 
-function digitsum(value) {
-  let sum = 0;
-  let len = value.toString().length;
-  for (let i = 0; i < len; i++) {
-    sum += parseInt(value[0]);
-  }
-  return sum;
-}
-digitsum(1);
+//Swapping Variables
+
+let a = "red";
+let b = "blue";
+
+let c = "";
+
+c = a;
+a = b;
+b = c;
+console.log(a);
+console.log(b);
