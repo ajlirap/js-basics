@@ -224,3 +224,172 @@ function cutComment(value) {
 }
 
 console.log(cutComment("let foo; // bar"));
+
+function gcd(a, b) {
+  let numgcd = 0;
+  let restA = 0;
+  let restB = 0;
+  do {
+    numgcd++;
+    restA = numgcd % a;
+    restB = numgcd % b;
+  } while (!(restA >= 0 && restB >= 0));
+  return numgcd;
+}
+gcd(6, 15);
+
+function maxi() {
+  let array = [arguments.length];
+  for (let i = 0; i < arguments.length; i++) {
+    array[i] = arguments[i];
+  }
+  return Math.max(...array);
+}
+maxi(1, 2);
+maxi(2, 3, 1);
+
+function parseFirstInt(value) {
+  let inputToParse = value;
+  for (let i = 0; i < value.length; i++) {
+    let firstInt = parseInt(inputToParse);
+    if (!Number.isNaN(firstInt)) {
+      return firstInt;
+    }
+    inputToParse = inputToParse.substr(1);
+  }
+  return NaN;
+}
+
+console.log(parseFirstInt("No. 10"));
+console.log(parseFirstInt("Babylon"));
+
+function sum(value) {
+  let sumArray = 0;
+  for (let i = 0; i < value.length; i++) {
+    sumArray += value[i];
+  }
+  return sumArray;
+}
+
+function mean(value) {
+  if (value.length == 0) {
+    return 0;
+  }
+  return sum(value) / value.length;
+}
+mean([0]);
+
+function arabic(value) {
+  let valueGetArabic = value;
+  let romanValue = 0;
+
+  for (let i = 0; i < value.length; i++) {
+    switch (valueGetArabic[i]) {
+      case "I": {
+        if (valueGetArabic[i + 1] == "V") {
+          romanValue += 4;
+          i++;
+          continue;
+        } else if (valueGetArabic[i + 1] == "X") {
+          romanValue += 9;
+          i++;
+          continue;
+        }
+        romanValue += 1;
+        break;
+      }
+      case "V":
+        romanValue += 5;
+        break;
+      case "X": {
+        if (valueGetArabic[i + 1] == "L") {
+          romanValue += 40;
+          i++;
+          continue;
+        } else if (valueGetArabic[i + 1] == "C") {
+          romanValue += 90;
+          i++;
+          continue;
+        }
+        romanValue += 10;
+        break;
+      }
+      case "L":
+        romanValue += 50;
+        break;
+      case "C": {
+        if (valueGetArabic[i + 1] == "D") {
+          romanValue += 400;
+          i++;
+          continue;
+        } else if (valueGetArabic[i + 1] == "M") {
+          romanValue += 900;
+          i++;
+          continue;
+        }
+        romanValue += 100;
+        break;
+      }
+      case "D":
+        romanValue += 500;
+        break;
+      case "M":
+        romanValue += 1000;
+        break;
+    }
+  }
+  return romanValue;
+}
+arabic("CDLXXXIII");
+arabic("X");
+
+const roman = (num, result = "") => {
+  const map = {
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1,
+  };
+  for (const key in map) {
+    if (num >= map[key]) {
+      if (num !== 0) {
+        return roman(num - map[key], result + key);
+      }
+    }
+  }
+  return result;
+};
+
+roman(483);
+
+function sumMultiples(value) {
+  let sum = 0;
+  for (let i = 1; i < value; i++) {
+    if (i >= 3) {
+      if (i % 3 == 0 || i % 5 == 0) {
+        sum += i;
+      }
+    }
+  }
+  return sum;
+}
+sumMultiples(3);
+
+function digitsum(value) {
+  let sum = 0;
+  let len = value.toString().length;
+  for (let i = 0; i < len; i++) {
+    sum += parseInt(value[0]);
+  }
+  return sum;
+}
+digitsum(1);
