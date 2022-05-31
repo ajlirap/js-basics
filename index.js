@@ -444,3 +444,188 @@ switch (role) {
 if (role === "guest") console.log("Guest");
 else if (role === "moderator") console.log("moderator");
 else console.log("Unknown");
+
+// for Loop Statement
+for (let i = 1; i <= 5; i++) {
+  //console.log("Hello Word", i);
+  //Odd Numbers
+  if (i % 2 !== 0) console.log(i);
+}
+console.log("*****Odd Number reverse order*****");
+//Odd Number reverse order
+for (let i = 5; i >= 1; i--) {
+  if (i % 2 !== 0) console.log(i);
+}
+console.log("*****While statement*****");
+//While statement
+let i = 0;
+while (i <= 5) {
+  if (i % 2 !== 0) console.log(i);
+  i++;
+}
+
+console.log("*****Do-While statement*****");
+// Do-while statement occur at least once.
+let iw = 0;
+do {
+  if (iw % 2 !== 0) console.log(iw);
+  iw++;
+} while (iw <= 5);
+
+console.log("*****for-in statement*****");
+//for-in
+const personNew = {
+  name: "Arturo",
+  age: 39,
+};
+
+for (let key in personNew) console.log(key, personNew[key]);
+
+const colors = ["red", "green", "blue"];
+
+for (let index in colors) console.log(colors[index]);
+
+// for-of
+console.log("*****for-in statement*****");
+for (let color of colors) console.log(color);
+
+//Break and continue
+console.log("*****Break and continue statement*****");
+console.log("*****Break statement*****");
+
+let variable = 0;
+while (variable <= 10) {
+  if (variable === 5) break;
+  console.log(variable);
+  variable++;
+}
+
+console.log("*****Continue statement*****");
+
+let variableDos = 0;
+while (variableDos <= 10) {
+  if (variableDos % 2 === 0) {
+    // Get Even Numbers
+    variableDos++;
+    continue;
+  }
+  console.log(variableDos);
+  variableDos++;
+}
+
+/**
+ * Write a function that takes two numbers and returns
+ * the maximum of the two.
+ */
+console.log("*****function MaxTwoNumbers statement*****");
+function maxTwoNumbers(numberUno, numberTwo) {
+  return numberUno > numberTwo ? numberUno : numberTwo;
+}
+console.log(maxTwoNumbers(25, 10));
+
+/**
+ * Landscape function
+ */
+console.log("*****function isLandscape*****");
+
+function isLandscape(width, height) {
+  return width > height;
+}
+console.log(isLandscape(11, 8.5));
+
+/**
+ * FizzBuzz function
+ * Divisible by 3 => 'Fizz'
+ * Divisible by 5 => 'Buzz'
+ * Divisible by 3 and 5 => 'FizzBuzz'
+ * Not Divisible by 3 or 5 => input
+ * Not a Number => 'Not a Number'
+ *
+ */
+console.log("*****function FizzBuzz*****");
+
+const outputTwo = fizzBuzzTwo(true);
+console.log(outputTwo);
+
+function fizzBuzzTwo(input) {
+  if (typeof input === "number") {
+    if (input % 3 === 0 && input % 5 === 0) return "FizzBuzz";
+    if (input % 3 === 0) return "Fizz";
+    if (input % 5 === 0) return "Buzz";
+    return input;
+  }
+  return NaN;
+}
+
+/**
+ * CheckSpeed function
+ * Speed Limit = 70 <= 'Ok'
+ * Every 5 km that you above of the limit
+ * You will get 1 point
+ * Math.floor(1.3) => 1
+ * More than 12 point 'License suspended'
+ *
+ */
+console.log("*****function CheckSpeed*****");
+CheckSpeedTwo(130);
+
+function CheckSpeedTwo(speed) {
+  const SpeedLimit = 70;
+  const kmPerPoint = 5;
+  if (speed < SpeedLimit + kmPerPoint) {
+    return console.log("OK");
+  }
+  const passLimit = speed - SpeedLimit;
+  const calculationPoints = Math.floor(passLimit / kmPerPoint);
+
+  if (calculationPoints >= 12) return console.log("License suspended");
+  else return console.log(calculationPoints + " " + "Point");
+}
+
+/**
+ * Show Number function
+ */
+console.log("*****function Show Number*****");
+showNumber(10);
+
+function showNumber(limit) {
+  for (let i = 0; i <= limit; i++) {
+    const message = i % 2 === 0 ? "EVEN" : "ODD";
+    console.log(i, message);
+    // if (i % 2 === 0) {
+    //   console.log(i, "EVEN");
+    // } else console.log(i, "ODD");
+  }
+}
+
+/**
+ * countTruthy
+ */
+console.log("****** Count Truthy function*****");
+
+console.log(countTruthy([0, 2, 3]));
+function countTruthy(array) {
+  let count = 0;
+  for (let value of array) {
+    if (value) count += 1;
+  }
+  return count;
+}
+
+/**Show Properties
+ *
+ */
+console.log("*******Show Properties function******");
+const movie = {
+  title: "a",
+  releaseYear: 2018,
+  rating: 4.5,
+  director: "b",
+};
+
+showProperties(movie);
+
+function showProperties(obj) {
+  for (let key in obj)
+    if (typeof obj[key] === "string") console.log(key, obj[key]);
+}
