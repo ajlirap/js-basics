@@ -1015,3 +1015,131 @@ const reduce = reduceNumbers.reduce((accumulator, currentValue) => {
 }, 0);
 
 console.log(reduce);
+
+console.log("*********FUNCTIONS*********");
+
+console.log("Declaration of functions");
+console.log("Function Declaration");
+//Function Declaration
+function walk() {
+  console.log("walk");
+}
+
+//Anonymous Function Expression
+console.log("Anonymous Function Expression");
+let run = function () {
+  console.log("run");
+};
+
+//Named Function Expression
+
+console.log("Named Function");
+let rundos = function fun() {
+  console.log("rundos");
+};
+let move = run;
+run();
+move();
+
+console.log("*******HOSTING*******");
+/**
+ * We can call a function before its declaration from Function Declaration
+ * The engine put and move all the declaration of definition function on the top
+ */
+console.log("What is Hosting?");
+console.log(`Hoisting is the process of moving function declaration to the top of the file.
+And this is done automatically by the JavaScript Engine that is executing this code. So that
+is the reason that we can call functions that are defined using the function declaration syntax`);
+
+console.log("*******Arguments of functions*******");
+
+//Normal parameters
+console.log("*******Normal Arguments of functions*******");
+
+function summ(a, b) {
+  console.log(arguments);
+  return a + b;
+}
+console.log(summ(1, 2));
+console.log(summ(1, 2, 3, 4, 5));
+
+console.log("*******Using Arguments of functions*******");
+//Argument parameters
+
+function summArg() {
+  let total = 0;
+  for (let argument of arguments) total += argument;
+  return total;
+}
+console.log(summArg(1, 2));
+console.log(summArg(1, 2, 3, 4, 5, 10));
+
+console.log("*******Using Rest Operator functions*******");
+//Argument parameters
+
+function summArgDos(...args) {
+  return args.reduce((a, b) => a + b);
+}
+console.log(summArgDos(1, 2, 3));
+
+console.log("*******Using Rest Operator functions Next Level*******");
+//Argument parameters
+
+function summArgNextLevel(discount, ...prices) {
+  const total = prices.reduce((a, b) => a + b);
+  return total * (1 - discount);
+}
+console.log(summArgNextLevel(0.1, 20, 30, 10));
+
+console.log("*******Using Default Paramenters in a function*******");
+console.log("Without  Default values options");
+function interest(principal, rate, years) {
+  return ((principal * rate) / 100) * years;
+}
+console.log(interest(10000));
+
+console.log("With Default values in Truthy options");
+function interestTruthy(principal, rate, years) {
+  rate = rate || 3.5;
+  years = years || 5;
+  return ((principal * rate) / 100) * years;
+}
+
+console.log(interestTruthy(10000));
+
+console.log("With Default values in EC6 new options");
+function interestNewWayEC6(principal, rate = 3.5, years = 5) {
+  return ((principal * rate) / 100) * years;
+}
+console.log(interestNewWayEC6(10000));
+
+console.log("******GETTERS AND SETTERS OBJECTS******");
+
+console.log("Normal call");
+const personGetSetNormal = {
+  firstName: "Arturo",
+  lastName: "Lira",
+  fullName() {
+    return `${firstName} ${this.lastName}`;
+  },
+};
+
+console.log(personGetSetNormal.fullName());
+
+console.log("Getters and Setters Application");
+
+const personGetSet = {
+  firstName: "Arturo",
+  lastName: "Lira",
+  get fullName() {
+    return `${personGetSet.firstName} ${personGetSet.lastName}`;
+  },
+  set fullName(value) {
+    const parts = value.split(" ");
+    this.firstName = parts[0];
+    this.lastName = parts[1];
+  },
+};
+
+personGetSet.fullName = "Jose Perez";
+console.log(personGetSet);
