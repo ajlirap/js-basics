@@ -913,3 +913,105 @@ console.log(split);
 
 console.log("Combine function to join split.join('-') ");
 console.log(split.join("-"));
+
+console.log("********function sort() in array primitive values********");
+
+const numbersSort = [1, 3, 2, 4];
+console.log("numbersSort Inital values", numbersSort);
+console.log("numbersSort.sort()");
+console.log(numbersSort.sort());
+
+console.log("********function sort() in array references values********");
+
+const coursesSort = [
+  { id: 1, name: "Node.js" },
+  { id: 2, name: "javaScript" },
+];
+
+console.log(coursesSort);
+
+coursesSort.sort(function (a, b) {
+  // a<b => -1
+  // a>b => 1
+  // a===b =>0
+  const nameA = a.name.toUpperCase();
+  const nameB = b.name.toUpperCase();
+
+  if (nameA < nameB) return -1;
+  if (nameA > nameB) return 1;
+  return 0;
+});
+console.log(coursesSort);
+
+const numbersEvery = [1, 3, 2, 4];
+console.log("********function every Array********");
+
+console.log(
+  numbersEvery.every(function (value) {
+    return value >= 0;
+  })
+);
+
+const numbersSome = [-1, 3, 2, 4];
+console.log("********function every Array********");
+
+console.log(
+  numbersSome.some(function (value) {
+    return value >= 0;
+  })
+);
+
+const numbersFilter = [-1, 3, 2, 4];
+console.log("********function filter Array********");
+
+const filtered = numbersFilter.filter(function (number) {
+  return number >= 0;
+});
+
+console.log(filtered);
+
+console.log("********function filter Array********");
+
+const filteredArrow = numbersFilter.filter((number) => number >= 0);
+console.log(filteredArrow);
+
+console.log("********function map Array********");
+
+const mapfilter = [1, 2, 3];
+
+const filtering = mapfilter.map((number) => "<li>" + number + "</li>");
+
+console.log(filtering);
+
+const html = "<ul>" + filtering.join(" ") + "</ul>";
+
+console.log(html);
+
+const item = filtered.map((n) => ({ value: n }));
+console.log(item);
+
+console.log("chain the methods");
+const chain = numbersFilter
+  .filter((number) => number >= 0)
+  .map((n) => ({ value: n }));
+console.log(chain);
+
+console.log("********function Reduce Array********");
+console.log("Normal sum using for (let)");
+const reduceNumbers = [1, -1, 2, 3];
+
+let sumReduce = 0;
+for (let n of reduceNumbers) sumReduce += n;
+console.log(sumReduce);
+
+//a =0, c=1 =>a = 1
+//a=1, c=-1 =>a = 0
+//a=0, c=2 => a=2
+//a=2 c= 3 => a= 5
+
+console.log("using reduce function");
+const reduce = reduceNumbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, 0);
+
+console.log(reduce);
