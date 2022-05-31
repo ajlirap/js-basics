@@ -703,3 +703,213 @@ function isPrime(number) {
 
   return true;
 }
+
+console.log("***** Arrays ********");
+const numbers = [3, 4];
+
+//End
+numbers.push(5, 6);
+console.log(numbers);
+//Beginning
+numbers.unshift(1, 2);
+console.log(numbers);
+//Middle
+numbers.splice(2, 0, "a", "b");
+console.log(numbers);
+
+console.log("******Find Primitive types***");
+/**Find Primitive types */
+
+const numbersTwo = [1, 2, 3, 4];
+
+console.log("Not Found Value indexOf(0) Strict Equality");
+console.log(numbersTwo.indexOf(0));
+
+console.log("Found Value indexOf(3) Strict Equality");
+console.log("Index=>", numbersTwo.indexOf(3));
+
+console.log("Found Value lastIndexOf(4) Strict Equality");
+console.log("Index=>", numbersTwo.lastIndexOf(4));
+
+console.log("Get true or false If Found Value indexOf(3) Strict Equality");
+console.log("IsTheValue=>", numbersTwo.indexOf(3) !== -1);
+
+console.log("Get true or false If Found Value includes(1) Strict Equality");
+console.log("IsTheValue=>", numbersTwo.includes(1));
+
+console.log("Second Parameter Found Value indexOf(1, 2) Strict Equality");
+console.log("SecondeParameter=>", numbersTwo.indexOf(1, 2));
+
+console.log("Second Parameter Found Value includes(1, 2) Strict Equality");
+console.log("IsTheValue=>", numbersTwo.includes(1, 2));
+
+console.log("Finding Reference Types");
+const courses = [
+  { id: 1, name: "Arturo" },
+  { id: 2, name: "Jose" },
+  { id: 3, name: "Josh" },
+];
+console.log('courses.find() Found Element course.name === "Arturo"');
+console.log(
+  courses.find(function (course) {
+    return course.name === "Arturo";
+  })
+);
+console.log('courses.find() Not Found Element course.name === "A"');
+console.log(
+  courses.find(function (course) {
+    return course.name === "A";
+  })
+);
+
+console.log('courses.findIndex() Found Element course.name === "Arturo"');
+console.log(
+  "Index=>",
+  courses.findIndex(function (course) {
+    return course.name === "Arturo";
+  })
+);
+
+console.log('courses.findIndex() Not Found Element course.name === "A"');
+console.log(
+  "Index=>",
+  courses.findIndex(function (course) {
+    return course.name === "A";
+  })
+);
+
+console.log("***********Arrow functions***********");
+console.log('courses.find() Found Element course.name === "Arturo"');
+console.log(
+  "object=>",
+  courses.find((course) => course.name === "Arturo")
+);
+
+console.log('courses.findIndex() Found Element course.name === "Arturo"');
+console.log(
+  "Index=>",
+  courses.findIndex((course) => course.name === "Arturo")
+);
+
+console.log("***********Remove Element in ARRAYS****************");
+//End
+console.log("Remove from End Element of Array");
+const last = numbersTwo.pop();
+console.log("Element removed from the Array => ", last);
+console.log(numbersTwo);
+// Beginning
+console.log("Remove from Beginning Element of Array");
+const first = numbersTwo.shift();
+console.log("Element removed from the Array => ", first);
+console.log(numbersTwo);
+
+//Middle
+const numbersThree = [1, 2, 3, 4];
+
+console.log("Remove from Middle Element of Array");
+const middle = numbersThree.splice(2, 1);
+console.log("Element removed from the Array => ", middle);
+console.log(numbersThree);
+
+console.log("***********Emptying ARRAYS****************");
+
+let emptedArray = [1, 2, 3, 4, 5];
+
+//Reference
+let another = emptedArray;
+console.log("********Solution 1********");
+emptedArray = [];
+console.log(
+  "This does not work with multiple reference to emptedArray".toUpperCase()
+);
+console.log("New Empted Array =>", emptedArray);
+console.log("Reference Another Array =>", another);
+
+console.log("********Solution 2********");
+
+let solutionTwo = [1, 2, 3, 4, 5];
+console.log("Solution 2 Initial Array 'solutionTwo'", solutionTwo);
+console.log("Solution 2 solutionTwo.length = 0");
+solutionTwo.length = 0;
+console.log("Solution 2", solutionTwo);
+
+console.log("********Solution 3********");
+let solutionThree = [1, 2, 3, 4, 5];
+console.log("Solution 3 Initial Array 'solutionThree'", solutionThree);
+
+solutionThree.splice(0, solutionThree.length);
+console.log("Solution 3 Empty 'solutionThree' solutionThree.splice = 0");
+console.log("Solution 3 solutionTwo.splice = 0");
+console.log("Solution 3", solutionThree);
+
+console.log("********Solution 4********");
+let solutionFour = [1, 2, 3, 4, 5];
+console.log("Solution 4 Initial Array 'solutionFour'", solutionFour);
+
+while (solutionFour.length > 0) solutionFour.pop();
+
+console.log("Solution 4 Empty 'solutionFour' solutionFour.pop() in Loop");
+console.log("Solution 4 solutionFour.pop()");
+console.log("Solution 4", solutionFour);
+
+console.log("********Combine********");
+
+const firstArray = [1, 2, 3];
+const secondArray = [4, 5, 6];
+
+const resultArray = firstArray.concat(secondArray);
+console.log("Function", "firstArray.concat(secondArray)");
+console.log(resultArray);
+
+const slice = resultArray.slice(2, 4);
+console.log("Function", "resultArray.slice(2,4)");
+console.log(slice);
+
+console.log("*********Spread Operator*********");
+const combine = [...firstArray, "a", ...secondArray, "b"];
+console.log("[...firstArray, ...secondArray]");
+
+console.log(combine);
+
+console.log("********Copy with Slice()*****");
+console.log(combine.slice());
+
+console.log("********Copy with Spread Operaor ...*****");
+console.log([...combine]);
+
+console.log("********Iterating an Array*****");
+const num = [1, 2, 3];
+console.log("for (let number of num)");
+for (let number of num) console.log(number);
+
+console.log("foreach num.forEach(callback)");
+
+num.forEach(function (number) {
+  console.log(number);
+});
+
+console.log(" num.forEach Arrow callback function");
+num.forEach((number) => console.log(number));
+
+console.log(" num.forEach Arrow callback function with two parameters");
+num.forEach((number, index) =>
+  console.log("index=>", index, "value=>", number)
+);
+
+console.log("********Joining an Array*****");
+
+const numbersJoin = [1, 2, 3, 4];
+
+const join = numbersJoin.join(",");
+console.log(" numbersJoin.join(',') function");
+console.log(join);
+
+console.log("function string split  message.split('') convert in array");
+const message = "This is my first message";
+
+const split = message.split(" ");
+
+console.log(split);
+
+console.log("Combine function to join split.join('-') ");
+console.log(split.join("-"));
