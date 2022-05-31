@@ -629,3 +629,77 @@ function showProperties(obj) {
   for (let key in obj)
     if (typeof obj[key] === "string") console.log(key, obj[key]);
 }
+
+/**Sum function
+ *
+ */
+console.log("*******Sum function******");
+
+console.log(sumTwo(10));
+
+function sumTwo(value) {
+  let sum = 0;
+  for (let i = 0; i <= value; i++) if (i % 3 === 0 || i % 5 === 0) sum += i;
+
+  return sum;
+}
+
+/**Grades function
+ * First Calculate the Average Grade
+ * 1-59: F
+ * 60-69: D
+ * 70-79: C
+ * 80-89: B
+ * 90-100 : A
+ */
+console.log("*******Grade function******");
+
+const marks = [80, 80, 50];
+console.log(calculateGrade(marks));
+
+function calculateGrade(marks) {
+  const average = calculateAverage(marks);
+
+  if (average < 60) return "F";
+  if (average < 70) return "D";
+  if (average < 80) return "C";
+  if (average < 90) return "B";
+  return "A";
+}
+
+function calculateAverage(array) {
+  let sum = 0;
+  for (let value in array) sum += marks[value];
+  return sum / marks.length;
+}
+
+/**
+ * function stars
+ */
+
+console.log("*****Show Stars******");
+showStars(2);
+
+function showStars(value) {
+  let start = "";
+  for (let i = 1; i <= value; i++) console.log((start += "*"));
+}
+
+/**
+ * function Show Primes
+ */
+
+console.log("*****Show Primes******");
+showPrimes(20);
+
+function showPrimes(limit) {
+  for (let number = 2; number <= limit; number++)
+    if (isPrime(number)) console.log(number);
+}
+
+function isPrime(number) {
+  for (let factor = 2; factor < number; factor++)
+    if (number % factor === 0) return false;
+
+  return true;
+}
