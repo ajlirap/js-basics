@@ -1143,3 +1143,26 @@ const personGetSet = {
 
 personGetSet.fullName = "Jose Perez";
 console.log(personGetSet);
+
+console.log("Try Catch ");
+
+const personTryCatch = {
+  firstName: "Arturo",
+  lastName: "Lira",
+  get fullName() {
+    return `${personTryCatch.firstName} ${personTryCatch.lastName}`;
+  },
+  set fullName(value) {
+    if (typeof value !== "string") throw new Error("Value is not a string.");
+    const parts = value.split(" ");
+    this.firstName = parts[0];
+    this.lastName = parts[1];
+  },
+};
+
+try {
+  personTryCatch.fullName = "";
+} catch (e) {
+  console.log(e);
+}
+console.log(personTryCatch);
