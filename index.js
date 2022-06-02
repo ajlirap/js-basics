@@ -1155,6 +1155,8 @@ const personTryCatch = {
   set fullName(value) {
     if (typeof value !== "string") throw new Error("Value is not a string.");
     const parts = value.split(" ");
+    if (parts.length !== 2) throw new Error("Enter a first and last name.");
+
     this.firstName = parts[0];
     this.lastName = parts[1];
   },
@@ -1166,3 +1168,85 @@ try {
   console.log(e);
 }
 console.log(personTryCatch);
+
+/**Exercise
+ * Create an array for a range min and max
+ */
+console.log(arrayFromRange(-10, 2));
+
+function arrayFromRange(min, max) {
+  const newArray = [];
+
+  for (let i = min; i <= max; i++) {
+    newArray.push(i);
+  }
+
+  return newArray;
+}
+
+/**Exercise
+ * Create a include function
+ */
+
+const elArray = [1, 2, 3, 6, 7];
+console.log(includeswithError(elArray, 7));
+
+function includeswithError(array, searchElement) {
+  for (let el of array) {
+    if (el === searchElement) {
+      return true;
+    }
+    return false;
+  }
+}
+console.log(includes(elArray, 8));
+function includes(array, searchElement) {
+  return array.indexOf(searchElement) !== -1;
+}
+
+const excerptArray = [1, 2, 3, 1];
+
+console.log(excerpt(excerptArray, [1, 2]));
+function excerpt(originArray, excludeArray) {
+  const output = [];
+
+  for (let element of originArray)
+    if (!excludeArray.includes(element)) output.push(element);
+  return output;
+}
+
+const moveArray = [1, 2, 3, 4];
+
+const outputMove = moveFunction(moveArray, 0, -1);
+console.log(outputMove);
+
+function moveFunction(array, index, offset) {
+  const position = index + offset;
+
+  if (position >= array.length || position < 0) {
+    console.error("Invalid Offset.");
+    return;
+  }
+  const output = [...array];
+  const element = output.splice(index, 1)[0];
+  output.splice(position, 0, element);
+  return output;
+}
+
+const reduceExercise = [2, 3, 6, 4];
+console.log(countOcurrences(reduceExercise, 1));
+function countOcurrences(array, element) {
+  return array.reduce((accumulator, current) => {
+    const occurance = current === element ? 1 : 0;
+    return accumulator + occurance;
+  }, 0);
+}
+
+const getMaxArray = [1, 2, 3, 4, 5, 7];
+console.log(getMax(getMaxArray));
+
+function getMax(array) {
+  if (array.length === 0) return undefined;
+
+  return array.reduce((a, b) => (a > b ? a : b));
+}
