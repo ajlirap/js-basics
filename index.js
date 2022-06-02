@@ -1234,11 +1234,11 @@ function moveFunction(array, index, offset) {
 }
 
 const reduceExercise = [2, 3, 6, 4];
-console.log(countOcurrences(reduceExercise, 1));
-function countOcurrences(array, element) {
+console.log(countOccurrences(reduceExercise, 1));
+function countOccurrences(array, element) {
   return array.reduce((accumulator, current) => {
-    const occurance = current === element ? 1 : 0;
-    return accumulator + occurance;
+    const occurrence = current === element ? 1 : 0;
+    return accumulator + occurrence;
   }, 0);
 }
 
@@ -1250,3 +1250,81 @@ function getMax(array) {
 
   return array.reduce((a, b) => (a > b ? a : b));
 }
+
+function Video(title) {
+  this.title = title;
+  console.log(this);
+}
+
+const v = new Video("b");
+
+function playVideo(a, b) {
+  console.log(this);
+}
+console.log("Method call");
+playVideo.call({ name: "Mosh" }, 1, 2);
+console.log("Method Apply");
+playVideo.apply({ name: "Arturo" }, [1, 2]);
+console.log(
+  "Method Bind, this return a new function or use an immediate call with ()"
+);
+const fn = playVideo.bind({ name: "Jose" });
+fn();
+
+console.log("Method Bind, immediate call with ()");
+playVideo.bind({ name: "Jose2" })();
+
+console.log("Method Simple call function");
+playVideo();
+
+console.log("Video function first approached self and assign this");
+const video = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  ShowTags() {
+    const self = this;
+    this.tags.forEach(function (tag) {
+      console.log(self.title, tag);
+    });
+  },
+};
+
+video.ShowTags();
+
+console.log("Video function second approached use bind method and pass this");
+
+const video2 = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  ShowTags() {
+    this.tags.forEach(
+      function (tag) {
+        console.log(this.title, tag);
+      }.bind(this)
+    );
+  },
+};
+
+video2.ShowTags();
+
+console.log("Video function Third approached using arrow function");
+
+const video3 = {
+  title: "a",
+  tags: ["a", "b", "c"],
+  ShowTags() {
+    this.tags.forEach((tag) => {
+      console.log(this.title, tag);
+    });
+  },
+};
+
+video3.ShowTags();
+
+/**Sum of Arguments */
+function sumArgsExercise(...args) {
+  if (args.length === 1 && Array.isArray(args[0])) args = [...args[0]];
+  return args.reduce((a, b) => a + b);
+}
+
+console.log(sumArgsExercise([1, 2, 3, 4, 5]));
